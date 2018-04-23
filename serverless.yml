@@ -1,0 +1,23 @@
+service: sls-zone-s3-watcher
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: remotedev
+  region: eu-west-1
+  profile: personal
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ses:SendEmail"
+        - "ses:SendRawEmail"
+      Resource: "*"
+
+functions:
+  itemApi:
+    handler: app.handle
+    events:
+      - http:
+          path: send-email
+          method: get
+          cors: true

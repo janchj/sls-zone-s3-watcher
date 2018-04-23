@@ -2,4 +2,4 @@
 
 ## Purpose
 
-Send an email with files have been changed on an S3 bucket.
+Send an email with file changes when any files are added/removed to an S3 bucket.
